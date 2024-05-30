@@ -2,6 +2,7 @@ import { Given, When, Then } from '@wdio/cucumber-framework';
 import { expect, $ } from '@wdio/globals'
 
 Given(/^I am on the (\w+) page$/, async (page) => {
+    await browser.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \"Debugging code\", \"level\": \"info\"}}", []); // COMMAND ANNOTATION https://www.lambdatest.com/support/docs/command-annotations/
     await browser.url(`https://the-internet.herokuapp.com/${page}`);
 });
 
